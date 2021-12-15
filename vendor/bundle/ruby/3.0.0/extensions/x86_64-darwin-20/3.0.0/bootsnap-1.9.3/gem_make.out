@@ -1,0 +1,15 @@
+current directory: /Users/rumi/Desktop/dalton/dalton_gen19_chatspace/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.9.3/ext/bootsnap
+/Users/rumi/.rbenv/versions/3.0.3/bin/ruby -I /Users/rumi/.rbenv/versions/3.0.3/lib/ruby/3.0.0 -r ./siteconf20211207-57483-xjssyk.rb extconf.rb
+creating Makefile
+
+current directory: /Users/rumi/Desktop/dalton/dalton_gen19_chatspace/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.9.3/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/rumi/Desktop/dalton/dalton_gen19_chatspace/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.9.3/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/rumi/Desktop/dalton/dalton_gen19_chatspace/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.9.3/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20211207-57483-82ruh8/bootsnap

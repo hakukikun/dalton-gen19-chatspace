@@ -1,0 +1,46 @@
+<div class="content_post well" >
+    <span class="name">
+      <a href="/users/<%= post.user_id %>">
+        <h4><%= post.user.nickname %></h4>
+      </a>
+    </span>
+    <%= simple_format(post.text) %>
+      <div class="btn-group">
+        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+        <%= image_tag 'option.png', :size => '30x30' %>
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <%= link_to '詳細', "/posts/#{post.id}", method: :get %>
+          </li>
+          <% if user_signed_in? && current_user.id == post.user_id %>
+          <li>
+            <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
+         </li><% end %>
+        </ul>
+
+        <% if user_signed_in? %>
+        <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
+        <%= link_to("/likes/#{post.id}/destroy", {method: "post"}) do %>
+          <span class="fa fa-thumbs-up like-btn-unlike">pojitive</span>
+        <% end %>
+        <% else %>
+        <%= link_to("/likes/#{post.id}/create", {method: "post"}) do %>
+          <span class="fa fa-thumbs-up like-btn"></span>
+        <% end %>
+        <% end %><%= post.likes_count %>
+
+        <% if Unlike.find_by(user_id: current_user.id, post_id: post.id) %>
+        <%= link_to("/unlikes/#{post.id}/destroy", {method: "post"}) do %>
+          <span class="fa fa-thumbs-down unlike-btn-unlike">negative</span>
+        <% end %>
+        <% else %>
+        <%= link_to("/unlikes/#{post.id}/create", {method: "post"}) do %>
+          <span class="fa fa-thumbs-down unlike-btn"></span>
+        <% end %>
+        <% end %><%= post.unlikes_count %>
+        <% end %>
+
+      </div>
+  </div>
+

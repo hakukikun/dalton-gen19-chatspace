@@ -1,0 +1,15 @@
+current directory: /Users/rumi/Desktop/dalton/dalton_gen19_chatspace/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/rumi/.rbenv/versions/2.6.3/bin/ruby -I /Users/rumi/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20211207-48058-130mk1g.rb extconf.rb
+creating Makefile
+
+current directory: /Users/rumi/Desktop/dalton/dalton_gen19_chatspace/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/rumi/Desktop/dalton/dalton_gen19_chatspace/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/rumi/Desktop/dalton/dalton_gen19_chatspace/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20211207-48058-182tliq/skiptrace/internal
