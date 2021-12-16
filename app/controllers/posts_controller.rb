@@ -9,7 +9,8 @@ class PostsController < ApplicationController
     end
 
     def create
-        Post.create(text: post_params[:text], user_id: current_user.id, likes_count: 0,unlikes_count: 0)
+        # Post.create(text: post_params[:text], user_id: current_user.id, likes_count: 0,unlikes_count: 0)
+        Post.create(text: post_params[:text], user_id: current_user.id, like_sum: 0)
     end
 
     def destroy

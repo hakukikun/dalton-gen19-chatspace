@@ -7,7 +7,7 @@
     <%= simple_format(post.text) %>
       <div class="btn-group">
         <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-        <%= image_tag 'option.png', :size => '30x30' %>
+        
         </button>
         <ul class="dropdown-menu">
           <li>
@@ -28,17 +28,10 @@
         <%= link_to("/likes/#{post.id}/create", {method: "post"}) do %>
           <span class="fa fa-thumbs-up like-btn"></span>
         <% end %>
-        <% end %><%= post.likes_count %>
+        <% end %>
+        
+        <%= post.like_sum %>
 
-        <% if Unlike.find_by(user_id: current_user.id, post_id: post.id) %>
-        <%= link_to("/unlikes/#{post.id}/destroy", {method: "post"}) do %>
-          <span class="fa fa-thumbs-down unlike-btn-unlike">negative</span>
-        <% end %>
-        <% else %>
-        <%= link_to("/unlikes/#{post.id}/create", {method: "post"}) do %>
-          <span class="fa fa-thumbs-down unlike-btn"></span>
-        <% end %>
-        <% end %><%= post.unlikes_count %>
         <% end %>
 
       </div>
