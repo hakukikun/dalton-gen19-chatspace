@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_12_16_084606) do
     t.string "text", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "like_sum"
+    t.integer "like_sum", null: false
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
