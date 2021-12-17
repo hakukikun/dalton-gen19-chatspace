@@ -10,12 +10,12 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: postgresql
-  encoding: utf8mb4
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: mysql2
+  encoding: utf8
+  pool: 5  # <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: pass
-  host: 
+  password: 
+  host: localhost
   socket: /tmp/mysql.sock
 
 development:
@@ -54,5 +54,5 @@ production:
   database: dalton_gen19_chatspace_production
   username: root
   password: 
-  url: <%= ENV['postgres://rhgoaqtrdqudgj:c6674b970601d5f991943482431635a443284455baf112dd85326e1c98a21d3b@ec2-3-228-75-39.compute-1.amazonaws.com:5432/daegeajni06rrj'] %>
+  url: 
   socket: /var/lib/mysql/mysql.sock
