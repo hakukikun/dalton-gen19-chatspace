@@ -14,10 +14,10 @@ default: &default
   encoding: utf8
   pool: 5  # <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: b4b991c64305ee
-  password: 'fd3d373f'
+  password: fd3d373f
   host: us-cdbr-east-05.cleardb.net
   socket: /tmp/mysql.sock
-  
+
 development:
   <<: *default
   database: dalton_gen19_chatspace_development
@@ -53,4 +53,4 @@ production:
   <<: *default
   database: dalton_gen19_chatspace_production
   url: <%= ENV['mysql2://b4b991c64305ee:fd3d373f@us-cdbr-east-05.cleardb.net/heroku_728d8b330b3fb89?'] %>
-  # socket: /usr/local/var/mysql/dalton_gen19_chatspace_development
+  socket: /tmp/mysql.sock
