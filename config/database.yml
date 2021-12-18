@@ -16,8 +16,8 @@ default: &default
   username: b4b991c64305ee
   password: 'fd3d373f'
   host: us-cdbr-east-05.cleardb.net
-  socket: 3306
-
+  socket: /tmp/mysql.sock
+  
 development:
   <<: *default
   database: dalton_gen19_chatspace_development
