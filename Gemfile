@@ -69,6 +69,5 @@ gem 'jquery-rails'
 gem 'bootstrap-material-design', '0.1.4'
 gem "font-awesome-rails"
 gem 'importmap-rails'
-gem 'cssbundling-rails'
 gem 'jsbundling-rails'
 # gem 'pg'
