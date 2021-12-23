@@ -54,5 +54,5 @@ production:
   password: "fd3d373f"
   host: us-cdbr-east-05.cleardb.net
   database: dalton_gen19_chatspace_production
-  url: <%= ENV['mysql2://b4b991c64305ee:fd3d373f@us-cdbr-east-05.cleardb.net/heroku_728d8b330b3fb89?'] %>
+  url: <%= ENV['CLEARDB_DATABASE_URL'] %>
   socket: /tmp/mysql.sock
