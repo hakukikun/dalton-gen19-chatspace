@@ -1,12 +1,16 @@
 <div class="contents row">
-  <div class="container">
-  <%= form_tag('/posts', method: :post) do %>
     <h3>
       質問を投稿する
     </h3>
-    <textarea name="text" placeholder="text" rows="10" cols="30"></textarea>
+  
+    <div class="container">
+  <%= form_with(model: form) do |form| %>
+    <%= form.label :text, style: "display: block" %>
+    <%= form.rich_text_area :text %>
+
+    # <textarea name="text" placeholder="text" rows="100" cols="30"></textarea>
     <input type="submit" value="SEND">
   <% end %>
-   </div>
+  </div>
 </div>
 

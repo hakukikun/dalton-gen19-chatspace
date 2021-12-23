@@ -2,23 +2,20 @@
   <div class="content_post">
     <% if user_signed_in? && current_user.id == @post.user_id %>
       <div class="more">
-        <ul class="more_list">
-          <li>
             <%= link_to '削除', "/posts/#{@post.id}", method: :delete %>
-          </li>
-        </ul>
-      </div>
     <% end %>
     <span class="name">
       <a href="/users/<%= @post.user.id %>">
        <h4> <%= @post.user.nickname %></h4>
       </a>
     </span>
-    <%= simple_format(@post.text) %>
-
+    <font color="#ffffff">
+    <%= @post.text %>
+    </font>
+    
   </div>
+
   <div class="container">
-    <!-- ここからフォーム -->
     <% if current_user %>
       <%= form_tag("/posts/#{@post.id}/comments", method: :post) do %>
         <textarea name="text" placeholder="コメントする" rows="2" cols="30"></textarea>
@@ -31,7 +28,7 @@
         <% @comments.each do |comment| %>
           <p>
             <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-            <%= comment.text %>
+            <font color="#ffffff"><%= comment.text %></font>
           </p>
         <% end %>
       <% end %>

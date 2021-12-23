@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
     def create
         # Post.create(text: post_params[:text], user_id: current_user.id, likes_count: 0,unlikes_count: 0)
-        Post.create(text: post_params[:text], user_id: current_user.id, like_sum: 0)
+        Post.create(text: post_params[:text], user_id: current_user.id, like_count: 0)
     end
 
     def destroy
@@ -24,7 +24,6 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
         @comments = @post.comments.includes(:user)
     end
-
 
     private
     def post_params

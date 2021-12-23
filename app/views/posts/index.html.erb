@@ -25,11 +25,11 @@
 <% end %>
 <div class="contents col-xs-6">
   <% if user_signed_in? %>
-  <div class="post btn-lg btn-black btn-block"><a href="/posts/new">投稿</div></a><% end %>
+  <div class="post btn-black btn-block"><a href="/posts/new">投稿</div></a><% end %>
   <% @posts.each do |post| %>
     <%= render partial: "post", locals: { post: post } %>
   <% end %>
-    <%= paginate(@posts) %>
+    <%= paginate(@posts) %> 
 </div>
 
 </div>

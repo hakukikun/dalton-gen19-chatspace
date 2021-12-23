@@ -1,39 +1,19 @@
 <div class="content_post well" >
-    <span class="name">
-      <a href="/users/<%= post.user_id %>">
-        <h4><%= post.user.nickname %></h4>
-      </a>
-    </span>
-    <%= simple_format(post.text) %>
-      <div class="btn-group">
-        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-        
-        </button>
-        <ul class="dropdown-menu">
-          <li>
-            <%= link_to '詳細', "/posts/#{post.id}", method: :get %>
-          </li>
-          <% if user_signed_in? && current_user.id == post.user_id %>
-          <li>
-            <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
-         </li><% end %>
-        </ul>
+  <span class="name">
+    <a href="/users/<%= post.user_id %>">
+      <h4><%= post.user.nickname %></h4>
+    </a>
+  </span>
+  
+  <font color="#ffffff"><%= post.text %></font>
 
-        <% if user_signed_in? %>
-        <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
-        <%= link_to("/likes/#{post.id}/destroy", {method: "post"}) do %>
-          <span class="fa fa-thumbs-up like-btn-unlike">pojitive</span>
-        <% end %>
-        <% else %>
-        <%= link_to("/likes/#{post.id}/create", {method: "post"}) do %>
-          <span class="fa fa-thumbs-up like-btn"></span>
-        <% end %>
-        <% end %>
-        
+      <p> <%= link_to '詳細', "/posts/#{post.id}", method: :get %> </p>
+      <p><font color="#aaaaaa"> posted <%= time_tag post.created_at, "data-local": "time-ago" %> </font></p>
+
+      <% if user_signed_in? %>
         <%= post.like_count %>
+        <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
+      <% end %>
 
-        <% end %>
-
-      </div>
-  </div>
+</div>
 

@@ -18,8 +18,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
   
-  resources :users, only: [:show, :likes]
-  resources :likes, only: [:create, :destroy]
+  resources :users
 
    post "likes/:post_id/create" => "likes#create"
    post "likes/:post_id/destroy" => "likes#destroy"
