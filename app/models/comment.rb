@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-    validates_presence_of :text
+    validates :text, {presence: true}
     has_rich_text :text
     belongs_to :post
     belongs_to :user

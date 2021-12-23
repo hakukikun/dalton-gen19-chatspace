@@ -12,9 +12,13 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy" 
   end
 
-  root 'posts#index'
-  resources :posts do
-    resources :comments, only: [:create]
+  root to: 'posts#index'
+
+  resources :posts do :comments
+    resources :comments
+  end
+
+  resources :posts do :likes
     resources :likes, only: [:create, :destroy]
   end
   
@@ -26,5 +30,5 @@ Rails.application.routes.draw do
 
   #  post "unlikes/:post_id/create" => "unlikes#create"
   #  post "unlikes/:post_id/destroy" => "unlikes#destroy"
-   get "users/:user_id/likes" => "users#unlikes"
+  #  get "users/:user_id/likes" => "users#unlikes"
 end

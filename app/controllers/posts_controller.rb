@@ -9,20 +9,30 @@ class PostsController < ApplicationController
     end
 
     def create
-        # Post.create(text: post_params[:text], user_id: current_user.id, likes_count: 0,unlikes_count: 0)
         Post.create(text: post_params[:text], user_id: current_user.id, like_count: 0)
     end
 
     def destroy
         post = Post.find(params[:id])
-        if Post.user_id == current_user.id
-          Post.destroy
-    end
+        if post.user_id == current_user.id
+          post.destroy
+        end
     end
 
     def show
         @post = Post.find(params[:id])
         @comments = @post.comments.includes(:user)
+    end
+
+    def edit
+        @post = Post.find(params[:id])
+    end 
+    
+    def update
+        post=Post.find(params[:id])
+        if post.user_id == current_user.id
+            post.update(post_params)
+        end
     end
 
     private

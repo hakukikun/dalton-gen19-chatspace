@@ -1,15 +1,11 @@
 <div class="contents row">
   <div class="content_post">
-    <% if user_signed_in? && current_user.id == @post.user_id %>
-      <div class="more">
-            <%= link_to '削除', "/posts/#{@post.id}", method: :delete %>
-    <% end %>
     <span class="name">
       <a href="/users/<%= @post.user.id %>">
        <h4> <%= @post.user.nickname %></h4>
       </a>
     </span>
-    <font color="#ffffff">
+    <font color="#000000">
     <%= @post.text %>
     </font>
 
@@ -20,19 +16,26 @@
       <%= form_tag("/posts/#{@post.id}/comments", method: :post) do %>
         <textarea name="text" placeholder="コメントする" rows="2" cols="30"></textarea>
         <input type="submit" value="SENT">
-      <% end %>
+    <% end %>
     <% end %>
 
     <div class="comments">
-      <h5>＜コメント一覧＞</h5>
+      <h4>＜コメント一覧＞</h4>
       <% if @comments %>
         <% @comments.each do |comment| %>
           <p>
             <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>
-            <font color="#ffffff">
+            <font color="#000000">
             <%= comment.text %>
             </font>
           </p>
+          <p><font color="#aaaaaa"> posted <%= time_tag @post.created_at, "data-local": "time-ago" %> </font></p>
+
+          <% if user_signed_in? %>
+            <%= @post.like_count %>
+            <%= link_to '編集', "/posts/#{@post.id}/comments/#{comment.id}/edit", method: :get %>
+            <%= link_to '削除', "/posts/#{@post.id}/comments/#{comment.id}", method: :delete %>
+          <% end %>
         <% end %>
       <% end %>
     </div>

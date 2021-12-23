@@ -1,9 +1,9 @@
 <div class="contents row">
   <h2><%= @nickname %>さんの投稿一覧</h2>
 
-  <% @posts.each do |post| %>
+  <% @posts.each do |post| %><font color="#000000">
     <%= render partial: "posts/post", locals: { post: post } %>
-  <% end %>
+  </font><% end %>
 
   <%= paginate(@posts) %>
 </div>

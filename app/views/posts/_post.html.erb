@@ -5,15 +5,18 @@
     </a>
   </span>
   
-  <font color="#ffffff"><%= post.text %></font>
+  <p><font color="#000000">
+  <%= post.text %>
+  </font></p>
 
-      <p> <%= link_to '詳細', "/posts/#{post.id}", method: :get %> </p>
-      <p><font color="#aaaaaa"> posted <%= time_tag post.created_at, "data-local": "time-ago" %> </font></p>
+  <p> <%= link_to '詳細', "/posts/#{post.id}", method: :get %> </p>
+  <p><font color="#aaaaaa"> posted <%= time_tag post.created_at, "data-local": "time-ago" %> </font></p>
 
-      <% if user_signed_in? %>
-        <%= post.like_count %>
-        <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
-      <% end %>
+  <% if user_signed_in?&&current_user.id == post.user_id %>
+    <%= post.like_count %>
+    <%= link_to '編集', "/posts/#{post.id}/edit", method: :get %>
+    <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
+  <% end %>
 
 </div>
 

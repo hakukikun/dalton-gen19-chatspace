@@ -53,10 +53,10 @@ ActiveRecord::Schema.define(version: 2021_12_23_083439) do
   create_table "comments", charset: "utf8mb4", force: :cascade do |t|
     t.integer "post_id"
     t.integer "user_id"
-    t.string "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "like_count"
+    t.string "text"
   end
 
   create_table "likes", charset: "utf8mb4", force: :cascade do |t|
@@ -69,10 +69,10 @@ ActiveRecord::Schema.define(version: 2021_12_23_083439) do
 
   create_table "posts", charset: "utf8mb4", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "text", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "like_count", null: false
+    t.string "text"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|

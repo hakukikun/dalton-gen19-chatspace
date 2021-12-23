@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
-    validates_presence_of :text
     has_rich_text :text
+
+    validates :text, {presence: true}
     belongs_to :user
     has_many :comments
     has_many :likes, dependent: :destroy
