@@ -29,7 +29,10 @@
             <%= comment.text %>
             </font>
           </p>
-          <p><font color="#aaaaaa"> posted <%= time_tag @post.created_at, "data-local": "time-ago" %> </font></p>
+          <p><font color="#aaaaaa"> 
+            posted: <%= @post.created_at.to_s(:datetime_jp) %>
+            (updated: <%= @post.updated_at.to_s(:datetime_jp) %>)
+          </font></p>
 
           <% if user_signed_in? %>
             <%= @post.like_count %>

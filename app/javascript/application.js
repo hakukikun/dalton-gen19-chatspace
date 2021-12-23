@@ -15,9 +15,10 @@ import "trix"
 import "@rails/actiontext"
 
 import LocalTime from "local-time"
+import * as bootstrap from "bootstrap"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 LocalTime.start()
-import * as bootstrap from "bootstrap"
+
