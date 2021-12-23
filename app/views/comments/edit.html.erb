@@ -1,0 +1,15 @@
+<div class="contents row">
+  <h2>編集する</h2>
+
+  <p>
+    <%= @comment.user.nickname %> :
+    <font color="#000000">
+    <%= @comment.text %>
+    </font>
+  </p>
+
+  <%= form_tag("/posts/#{@comment.post_id}/comments/#{@comment.id}", method: :patch) do %>
+    <textarea name="text" placeholder="text" rows="10" cols="30",autofocus:"true"></textarea>
+    <input type="submit" value="投稿">
+  <% end %>
+</div>
