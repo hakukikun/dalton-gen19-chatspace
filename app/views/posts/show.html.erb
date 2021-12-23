@@ -12,7 +12,7 @@
     <font color="#ffffff">
     <%= @post.text %>
     </font>
-    
+
   </div>
 
   <div class="container">
@@ -22,13 +22,16 @@
         <input type="submit" value="SENT">
       <% end %>
     <% end %>
+
     <div class="comments">
-      <h4>＜コメント一覧＞</h4>
+      <h5>＜コメント一覧＞</h5>
       <% if @comments %>
         <% @comments.each do |comment| %>
           <p>
-            <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-            <font color="#ffffff"><%= comment.text %></font>
+            <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>
+            <font color="#ffffff">
+            <%= comment.text %>
+            </font>
           </p>
         <% end %>
       <% end %>
