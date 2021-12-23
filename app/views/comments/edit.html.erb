@@ -1,15 +1,29 @@
 <div class="contents row">
-  <h2>編集する</h2>
+    <h3>
+      質問内容 :
+    </h3>
 
-  <p>
-    <%= @comment.user.nickname %> :
+    <div class="content_post well" >
+    <font color="#000000">
+    <%= @post_text %>
+    </font>
+    </div>
+  
+    <h4>
+     元のコメント文 :
+    </h4>
+
+    <div class="content_post well" >
     <font color="#000000">
     <%= @comment.text %>
     </font>
-  </p>
+    </div>
 
-  <%= form_tag("/posts/#{@comment.post_id}/comments/#{@comment.id}", method: :patch) do %>
-    <textarea name="text" placeholder="text" rows="10" cols="30",autofocus:"true"></textarea>
-    <input type="submit" value="投稿">
-  <% end %>
+    <%= form_tag("/posts/#{@comment.post.id}/comments/#{@comment.id}", method: :patch) do %>
+    <div class="mb-6">
+    <label for="exampleFormControlTextarea1" class="form-label">コメント編集画面</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="text" placeholder= "上記より良いコメントを!!", rows="6"></textarea>
+    <input type="submit" value="コメントしなおす">
+    <% end %>
+    </div>
 </div>

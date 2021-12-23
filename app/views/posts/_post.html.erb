@@ -12,7 +12,6 @@
   <p> <%= link_to '詳細', "/posts/#{post.id}", method: :get %> </p>
   <p><font color="#aaaaaa"> 
     posted: <%= post.created_at.to_s(:datetime_jp) %>
-    (updated: <%= post.updated_at.to_s(:datetime_jp) %>)
   </font></p>
 
   <% if user_signed_in?&&current_user.id == post.user_id %>

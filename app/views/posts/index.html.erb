@@ -1,35 +1,10 @@
 <div class="row">
-<% if user_signed_in? %>
-  <div class="profile col-xs-3">
-    <div class="card" style="width: 24rem;">
-      <div class="thumbnail">
-        <h3 class="card-title"><%= current_user.nickname %></h3>
-        <!-- <p class="card-text">aaaaa</p> -->
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-dark"><a href="/users/<%=current_user.id %>">マイページ</a></button>
-          <button type="button" class="btn btn-dark"><%= link_to "ログアウト", destroy_user_session_path, method: :delete%></button>
-        </div>
-      </div>
-  </div>
-  </div>
-<% else %>
-  <div class="profile col-xs-3">
-    <div class="card" style="width: 24rem;">
-    <div class="thumbnail">
-      <h3 class="card-title">ゲストユーザ</h3>
-      <%= link_to "新規登録", new_user_registration_path, class: "btn btn-lg btn-secondary" %>
-      <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg btn-secondary" %>
-    </div>
-    </div>
-  </div>
-<% end %>
-<div class="contents col-xs-6">
-  <% if user_signed_in? %>
-  <div class="post btn-black btn-block"><a href="/posts/new">投稿</div></a><% end %>
+<div class="grid-6">
+
   <% @posts.each do |post| %>
     <%= render partial: "post", locals: { post: post } %>
   <% end %>
     <%= paginate(@posts) %> 
+  </div>
 </div>
-
 </div>

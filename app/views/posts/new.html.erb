@@ -3,9 +3,10 @@
       質問を投稿する
     </h3>
   
-  <div class="container">
+  <div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">本文</label>
   <%= form_tag('/posts',method: :post) do %>
-    <textarea name="text" placeholder="text", cols:"30", rows:"10", autofocus:"true"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="text" placeholder="使用しているOSと，コードについての質問かターミナルの操作についての質問かなど具体的に書きましょう．", rows="3", autofocus:"true"></textarea>
     <input type="submit" value="質問する">
   <% end %>
   </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DaltonGen19Chatspace</title>
+    <title>Dalton Gen19 Chatspace</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,6 +13,32 @@
   </head>
 
   <body>
+  <header class="header">
+  <div class="header_bar row">
+  <h1 class="d-grid gap-2 d-md-block"><a href="/">Gen19 ChatSpace</a></h1>
+
+  <button type="button" class="btn btn-primary btn-lg">
+  <% if user_signed_in? %>
+  <a href="/posts/new"><font color="#ffffff"> 投稿 </font></a>
+  <% end %>
+  </button>
+
+  <% if user_signed_in? %>
+  <h3><%= current_user.nickname %></h3>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary me-md-2" type="button"><a href="/users/<%= current_user.id %>"><font color="#ffffff">マイページ</font></a></button>
+    <button class="btn btn-primary" type="button"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, :style => "color:white;" %></button>
+  </div>
+
+  <% else %>
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary me-md-2" type="button"><%= link_to "ログイン", new_user_session_path, class: 'post', :style => "color:white;" %></button>
+    <button class="btn btn-primary" type="button"><%= link_to "新規登録", new_user_registration_path, class: 'post', :style => "color:white;" %></button>
+  </div>
+  <% end %>
+  </div>
+  </header>
 
   <div class="container">
       <%= yield %>
