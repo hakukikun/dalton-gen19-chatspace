@@ -5,40 +5,36 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
-    <link rel="stylesheet" href="https://cdn.simpless.org/simple.min.css">
     <%= javascript_importmap_tags %>
-    <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
+  <div class="container">
   <header class="header">
-  <div class="header_bar row">
-  <h1 class="d-grid gap-2 d-md-block"><a href="/">Gen19 ChatSpace</a></h1>
-
-  <button type="button" class="btn btn-primary btn-lg">
+  
+  <div class="btn-group" role="group" aria-label="Basic example">
   <% if user_signed_in? %>
-  <a href="/posts/new"><font color="#ffffff"> 投稿 </font></a>
-  <% end %>
-  </button>
-
-  <% if user_signed_in? %>
-  <h3><%= current_user.nickname %></h3>
-  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button class="btn btn-primary me-md-2" type="button"><a href="/users/<%= current_user.id %>"><font color="#ffffff">マイページ</font></a></button>
+    <button type="button" class="btn btn-primary">
+    <a href="/posts/new"><font color="#ffffff"> 投稿 </font></a>
+    </button>
+    <button class="btn btn-primary" type="button"><a href="/users/<%= current_user.id %>"><font color="#ffffff">マイページ</font></a></button>
     <button class="btn btn-primary" type="button"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, :style => "color:white;" %></button>
-  </div>
+    <h3><%= current_user.nickname %>さん，こんにちは．</h3>
+  </div></div>
 
   <% else %>
 
-  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button class="btn btn-primary me-md-2" type="button"><%= link_to "ログイン", new_user_session_path, class: 'post', :style => "color:white;" %></button>
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button class="btn btn-primary" type="button"><%= link_to "ログイン", new_user_session_path, class: 'post', :style => "color:white;" %></button>
     <button class="btn btn-primary" type="button"><%= link_to "新規登録", new_user_registration_path, class: 'post', :style => "color:white;" %></button>
   </div>
   <% end %>
-  </div>
+  <h1><a href="/">Gen19 ChatSpace</a></h1>
   </header>
+  </div>
 
   <div class="container">
       <%= yield %>
