@@ -1,0 +1,17 @@
+<div class="comments">
+<h4>＜コメント一覧＞</h4>
+    <% if @comments %> 
+        <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>
+        <font color="#000000"><%= comment.text %></font>
+          
+        <p><font color="#aaaaaa"> 
+            posted: <%= comment.created_at.to_s(:datetime_jp) %>
+        </font></p>
+
+        <% if user_signed_in? %>
+            <%= @post.like_count %>
+            <%= link_to '編集', "/posts/#{@post.id}/comments/#{comment.id}/edit", method: :get %>
+            <%= link_to '削除', "/posts/#{@post.id}/comments/#{comment.id}", method: :delete %>
+        <% end %>
+    <% end %>
+</div>

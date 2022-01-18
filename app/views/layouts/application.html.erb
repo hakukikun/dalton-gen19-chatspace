@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: "all", 'data-turbo-track': 'reload' %>
     <%= javascript_importmap_tags %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
@@ -14,22 +13,21 @@
   <body>
   <div class="container">
   <header class="header">
-
+  <%= link_to image_tag('logo.png', width: '150'), '/' %>
   <% if user_signed_in? %>
-  <div class="btn-group" role="group" aria-label="Basic example">
+  <div class="btn-group" role="group" aria-label="Basic outlined example">
+  <h3><%= current_user.nickname %>さん，こんにちは．</h3>
     <button type="button" class="btn btn-primary"><a href="/posts/new"><font color="#ffffff"> 投稿 </font></a></button>
     <button class="btn btn-primary" type="button"><a href="/users/<%= current_user.id %>"><font color="#ffffff">マイページ</font></a></button>
     <button class="btn btn-primary" type="button"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, :style => "color:white;" %></button>
-    <h3><%= current_user.nickname %>さん，こんにちは．</h3>
-  </div></div>
+  </div>
+  <% else %>
   <% end %>
   
-  <h1><a href="/">Gen19 ChatSpace</a></h1>
+  
   </header>
-  </div>
 
-  <div class="container">
-      <%= yield %>
+  <%= yield %>
   </div>
 
   <footer>
@@ -38,6 +36,5 @@
     </p>
   </footer>
 
-  </div>
   </body>
 </html>

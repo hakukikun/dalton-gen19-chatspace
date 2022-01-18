@@ -1,0 +1,12 @@
+# <div class="row">
+# <div class="mb-6">
+# <% if current_user %>
+#   <label for="exampleFormControlTextarea1" class="form-label">コメント</label>
+#   <%= form_tag("/posts/#{@post.id}/comments", method: :post) do %>
+#     <textarea class="form-control" id="exampleFormControlTextarea1"name="text" placeholder="みんなで解決し合いましょう!!", rows="6"></textarea>
+#     <input type="submit" value="コメントする">
+#   <% end %>
+#   <% end %>  
+
+# </div>
+# </div>

@@ -18,6 +18,9 @@ module DaltonGen19Chatspace
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
+
+    require "sprockets/railtie"
+
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local

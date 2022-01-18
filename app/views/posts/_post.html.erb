@@ -8,17 +8,26 @@
   <p><font color="#000000">
   <%= post.text %>
   </font></p>
-
-  <p> <%= link_to '詳細', "/posts/#{post.id}", method: :get %> </p>
   <p><font color="#aaaaaa"> 
-    posted: <%= post.created_at.to_s(:datetime_jp) %>
+  posted: <%= post.created_at.to_s(:datetime_jp) %>
   </font></p>
 
+  <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group" role="group" aria-label="First group">
+
   <% if user_signed_in?&&current_user.id == post.user_id %>
-    <%= post.like_count %>
-    <%= link_to '編集', "/posts/#{post.id}/edit", method: :get %>
-    <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
+    <button type="button" class="btn btn-secondary btn-sm">
+    いいね <span class="badge bg-light"><%= post.like_count %></span>
+    </button>
   <% end %>
 
+  <button type="button" class="btn btn-secondary btn-sm"><%= link_to 'コメント', "/posts/#{post.id}", method: :get %>
+  <span class="badge bg-light"><%= post.like_count %></span></button>
+
+  <% if user_signed_in?&&current_user.id == post.user_id %>
+    <button type="button" class="btn btn-secondary btn-sm"><%= link_to '編集', "/posts/#{post.id}/edit", method: :get %></button>
+    <button type="button" class="btn btn-secondary btn-sm"><%= link_to '削除', "/posts/#{post.id}", method: :delete %></button>
+  <% end %>
+  </div></div>
 </div>
 

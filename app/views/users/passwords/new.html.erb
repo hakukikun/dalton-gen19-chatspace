@@ -1,16 +1,16 @@
 <div class="row">
-<h2>Forgot your password?</h2>
+<h2>パスワード忘れましたか?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+  <p><font color="#ff0000"><%= render "users/shared/error_messages", resource: resource %></font></p>
 
   <div class="col">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="col">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
+
+  <%= f.submit "上記メールアドレスへパスワード変更リンクを送信" %>
+ 
 <% end %>
-</div>
+</div> 
